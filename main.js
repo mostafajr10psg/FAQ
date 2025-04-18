@@ -36,7 +36,7 @@ let mediaQuery = matchMedia("(max-width: 767px)");
 
 if (mediaQuery.matches) {
   for (let i = 0; i < plusIcon.length; i++) {
-    allQuestionsDetails[i].addEventListener("touchend", (e) => {
+    allQuestionsDetails[i].addEventListener("touchstart", (e) => {
       if (allQuestionsDetails[i].className === "hide-answer") {
         plusIcon[i].style.display = "none";
         minusIcon[i].style.display = "block";
