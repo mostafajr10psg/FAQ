@@ -35,7 +35,7 @@ function showHideOrAnswers(event) {
 }
 
 if (matchMedia("(max-width: 767px)").matches) {
-  showHideOrAnswers("touchend");
+  showHideOrAnswers("touchstart");
 } else {
   showHideOrAnswers("click");
 }
