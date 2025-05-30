@@ -126,8 +126,17 @@ main {
   line-height: 1.5;
 }
 
+.faq .answer,
+.faq div:hover .question {
+  transition: none;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .faq .answer {
-    transition: all 0.3s ease;
+    transition: height 0.3s ease, opacity 0.3s ease;
+  }
+
+  .faq div:hover .question {
+    transition: color 0.3s ease;
   }
 }
