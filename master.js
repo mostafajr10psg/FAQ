@@ -4,9 +4,23 @@ let allAnswers = document.querySelectorAll(".answer");
 let allQuestions = document.querySelectorAll(".question");
 let allQuestionsDetails = document.querySelectorAll(".ques-details");
 
-function showHideOrAnswers(event) {
+function removeProperties(ele, ...props) {
+  for (let i = 0; i < props.length; i++) {
+    ele.style.removeProperty(props[i]);
+  }
+}
+
+function addClass(ele, className) {
+  ele.classList.add(className);
+}
+
+function removeClass(ele, className) {
+  ele.classList.remove(className);
+}
+
+function showOrHideAnswers(event) {
   for (let i = 0; i < plusIcon.length; i++) {
-    allQuestionsDetails[i].addEventListener(event, () => {
+    allQuestionsDetails[i].addEventListener(event, (e) => {
       if (allQuestionsDetails[i].classList.contains("hide-answer")) {
         plusIcon[i].style.display = "none";
         minusIcon[i].style.display = "block";
@@ -16,26 +30,24 @@ function showHideOrAnswers(event) {
     opacity: 1;
     margin-top: 15px;
     `;
-        allQuestionsDetails[i].classList.remove("hide-answer");
-        allQuestionsDetails[i].classList.add("show-answer");
+
+        removeClass(allQuestionsDetails[i], "hide-answer");
+        addClass(allQuestionsDetails[i], "show-answer");
       } else {
-        plusIcon[i].style.display = "block";
-        minusIcon[i].style.display = "none";
-        allQuestions[i].style.removeProperty("color");
-        allAnswers[i].style.cssText = `
-  height: 0;
-  opacity: 0;
-  margin-top: 0;
-  `;
-        allQuestionsDetails[i].classList.remove("show-answer");
-        allQuestionsDetails[i].classList.add("hide-answer");
+        removeProperties(plusIcon[i], "display");
+        removeProperties(minusIcon[i], "display");
+        removeProperties(allQuestions[i], "color");
+        removeProperties(allAnswers[i], "height", "opacity", "margin-top");
+
+        removeClass(allQuestionsDetails[i], "show-answer");
+        addClass(allQuestionsDetails[i], "hide-answer");
       }
     });
   }
 }
 
 if (matchMedia("(max-width: 767px)").matches) {
-  showHideOrAnswers("touchstart");
+  showOrHideAnswers("touchstart");
 } else {
-  showHideOrAnswers("click");
+  showOrHideAnswers("click");
 }

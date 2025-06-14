@@ -5,6 +5,7 @@ html {
 body {
   min-height: 100vh;
   background-color: hsl(275, 100%, 97%);
+  font-size: 1.6rem;
   font-family: "Work Sans", serif;
   display: flex;
   align-items: center;
@@ -48,12 +49,12 @@ main {
   border-radius: 15px;
   padding: 40px;
   max-width: 600px;
-  margin: 20px;
 }
 
-@media (max-width: 550px) {
+@media (max-width: 650px) {
   main {
     padding: 25px;
+    margin: 20px;
   }
 }
 
@@ -109,7 +110,7 @@ main {
   font-size: 18px;
 }
 
-@media (max-width: 550px) {
+@media (max-width: 650px) {
   .faq .question {
     font-size: 16px;
   }
@@ -128,19 +129,5 @@ main {
   opacity: 0;
   color: hsl(292, 16%, 49%);
   line-height: 1.5;
-}
-
-.faq .answer,
-.faq div:hover .question {
-  transition: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .faq .answer {
-    transition: height 0.3s ease, opacity 0.3s ease;
-  }
-
-  .faq div:hover .question {
-    transition: color 0.3s ease;
-  }
+  transition: 0.3s;
 }
