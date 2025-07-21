@@ -1,0 +1,143 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  background-color: hsl(275, 100%, 97%);
+  font-size: 1.6rem;
+  font-family: "Work Sans", serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body::before,
+body::after {
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+}
+
+@media (min-width: 701px) {
+  body::before {
+    content: "";
+    background-image: url(../imgs/background-pattern-desktop.svg);
+    height: 40rem;
+  }
+}
+
+@media (max-width: 700px) {
+  body::after {
+    content: "";
+    background-image: url(../imgs/background-pattern-mobile.svg);
+    height: 30rem;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.active {
+  color: rgb(173 40 235) !important;
+}
+
+main {
+  background-color: white;
+  border-radius: 1.5rem;
+  padding: 4rem;
+  max-width: 60rem;
+}
+
+@media (max-width: 650px) {
+  main {
+    padding: 2.5rem;
+    margin: 2rem;
+  }
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.title img {
+  width: 3.5rem;
+}
+
+.title h1 {
+  color: hsl(292, 42%, 14%);
+  font-size: 4.5rem;
+}
+
+@media (max-width: 767px) {
+  .title img {
+    width: 2.8rem;
+  }
+
+  .title h1 {
+    font-size: 3.5rem;
+  }
+}
+
+.faq {
+  overflow: hidden;
+}
+
+.faq:not(:last-of-type) {
+  border-bottom: 1px solid #eee;
+  padding: 2.5rem 0;
+}
+
+.faq:last-of-type {
+  padding-top: 2rem;
+}
+
+:nth-child(1 of .faq) {
+  padding-top: 3.5rem;
+}
+
+.faq .ques-details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  cursor: pointer;
+}
+
+.faq .question {
+  color: hsl(292, 42%, 14%);
+  font-weight: 600;
+  font-size: 1.8rem;
+}
+
+@media (max-width: 650px) {
+  .faq .question {
+    font-size: 1.6rem;
+  }
+}
+
+.faq div:hover .question {
+  color: rgb(173 40 235);
+}
+
+.faq .answer {
+  height: 0;
+  opacity: 0;
+  color: hsl(292, 16%, 49%);
+  line-height: 1.5;
+  transition: 0.3s;
+}
